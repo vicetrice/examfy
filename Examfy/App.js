@@ -1,14 +1,15 @@
 import { StatusBar } from 'expo-status-bar';
-import { useState } from 'react';
+import { React, useState } from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, Platform } from 'react-native';
 
+//import contactos from './screens/contactos';
+
 export default function App() {
-  const [texto, setTexto] = useState(''); // Estado para almacenar el texto ingresado
+  const [inises, setInises] = useState(false);
 
-  const handleInputChange = (nuevoTexto) => {
-    setTexto(nuevoTexto);
-  };
-
+  const ActivarInises = () => {
+    setInises(true);
+  }
 
   return (
     <View style={styles.container}>
@@ -24,12 +25,13 @@ export default function App() {
           <Text style={styles.buttontext}> Crear Cuenta</Text>
         </View>
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity onPress={ActivarInises}>
         <View style={styles.button2}>
           <Text style={styles.buttontext}> Iniciar Sesión</Text>
         </View>
       </TouchableOpacity>
-
+      {inises && <View style={{ position: 'absolute', width: windowWidth, height: windowHeight, backgroundColor: 'white' }}>
+      </View>}
 
     </View>
   );
@@ -59,10 +61,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#d4f4f6',
   },
   circle2: {
-    width: 220,
-    height: 220,
-    right: -50,
-    bottom: 450,
+    width: windowWidth * 0.40,
+    height: windowHeight * 0.8,
+    right: -0.1 * windowWidth,
+    bottom: windowHeight * 0.6125,
     borderRadius: 1000,
     position: 'absolute',
     backgroundColor: '#d4f4f6',
@@ -117,11 +119,11 @@ const styles = StyleSheet.create({
 
   },
   circle1: {
-    width: windowWidth * 1.2,
-    height: windowHeight * 0.6,
+    width: windowWidth * 1.3325,
+    height: windowHeight * 0.7,
     borderRadius: windowWidth * 1000,
-    top: windowHeight * 0.30,
-    left: -101,
+    top: windowHeight * 0.3,
+    left: -0.28 * windowWidth,
     position: 'absolute',
     backgroundColor: '#fff',
   }
