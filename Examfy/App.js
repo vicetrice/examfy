@@ -2,7 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { React, useState } from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, Platform } from 'react-native';
 
-//import contactos from './screens/contactos';
+import Addcont from './screens/Addcont';
 
 export default function App() {
   const [inises, setInises] = useState(false);
@@ -31,8 +31,8 @@ export default function App() {
         </View>
       </TouchableOpacity>
       {inises && <View style={{ position: 'absolute', width: windowWidth, height: windowHeight, backgroundColor: 'white' }}>
+        <Addcont />
       </View>}
-
     </View>
   );
 }
