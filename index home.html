@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplicación Móvil</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .app {
+            width: 100%;
+            background-color: #f0f0f0;
+            border: 2px solid #ccc; /* Agrega bordes alrededor de la aplicación */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: #d4f4f6;
+            text-align: center;
+            padding: 10px;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+            flex: 1;
+            overflow-y: auto;
+        }
+        .footer {
+            background-color: #d4f4f6;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: sticky;
+            bottom: 0;
+        }
+        .footer ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .footer img {
+            max-width: 30px;
+            max-height: 30px;
+            margin: 0 10px;
+        }
+        .image-row {
+            justify-content: center;
+            margin: 20px auto;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        .image {
+            margin: 10px;
+            max-width: 180px;
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div class="header">
+            <h1><a href="index home.html">
+                <img src="logos/logo_2.png">
+            </a></h1>
+        </div>
+        <div class="container">
+            <div class="image-row">
+                <img class="image" src="galeria/gal1.jpg">
+                <img class="image" src="galeria/gal2.jpg">
+                <img class="image" src="galeria/gal3.jpg">
+                <img class="image" src="galeria/gal4.jpg">
+                <img class="image" src="galeria/gal5.jpg">
+                <img class="image" src="galeria/gal6.jpg">
+                <img class="image" src="galeria/gal7.jpg">
+                <img class="image" src="galeria/gal8.jpg">
+                <img class="image" src="galeria/gal9.jpg">
+            </div>
+        </div>
+        <div class="footer">
+            <ul>
+                <a href="index home.html">
+                    <img src="logos/im5.png">
+                </a>
+                <a href="#">
+                    <img src="logos/im2.png">
+                </a>
+                <a href="#">
+                    <img src="logos/im3.png">
+                </a>
+                <a href="#">
+                    <img src="logos/im4.png">
+                </a>
+                <a href="index friends.html">
+                    <img src="logos/im6.png">
+                </a>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
