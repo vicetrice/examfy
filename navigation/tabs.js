@@ -1,6 +1,6 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
-import AddPhoto from '../assets/camera-add-svgrepo-com.png';
+import AddPhoto from '../screens/AddPhoto';
 
 const Tab = createBottomTabNavigator();
 
