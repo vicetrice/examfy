@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Aplicación Móvil</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        .app {
+            width: 100%;
+            background-color: #ffffff;
+            border: 2px solid #ffffff; /* Agrega bordes alrededor de la aplicación */
+            display: flex;
+            flex-direction: column;
+        }
+
+        .header {
+            background-color: #d4f4f6;
+            text-align: center;
+            padding: 10px;
+        }
+        .container {
+            text-align: center;
+            padding: 20px;
+        }
+        .footer {
+            background-color: #d4f4f6;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            position: sticky;
+            bottom: 0;
+        }
+        .footer ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        .footer img {
+            max-width: 30px;
+            max-height: 30px;
+            margin: 0 10px; /* Espacio entre los íconos */
+        }
+        .image-row {
+            justify-content: center;
+            margin: 20px auto; /* Espaciado superior e inferior, centrado horizontalmente */
+            display: flex;
+            flex-wrap: wrap; /* Asegura que las imágenes se ajusten a la pantalla */
+        }
+        .image {
+            margin: 5px;
+            max-width: 180px;
+        }
+
+        .btncont1 {
+            background-color: #e2e2e2;
+            color: #17193c;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; /* Extrabold */
+            padding: 5px;
+            width: 400px;
+            font-size: 30px;
+            border-radius: 10px; /* Agregar bordes suaves */
+            border: 3px solid #b0b0b0;
+            cursor: pointer;
+            background-image: url('contactos/margarita.jpg');
+            background-repeat: no-repeat;
+            background-size: 35px 35px;
+            background-position: 10px center;
+            padding-left: 50px;
+        }
+        .btncont2 {
+            background-color: #e2e2e2;
+            color: #17193c;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; /* Extrabold */
+            padding: 5px;
+            width: 400px;
+            font-size: 30px;
+            border-radius: 10px; /* Agregar bordes suaves */
+            border: 3px solid #b0b0b0;
+            cursor: pointer;
+            background-image: url('contactos/jose\ miguel.jpg');
+            background-repeat: no-repeat;
+            background-size: 35px 35px;
+            background-position: 10px center;
+            padding-left: 50px;
+        }
+        .btncont3 {
+            background-color: #e2e2e2;
+            color: #17193c;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; /* Extrabold */
+            padding: 5px;
+            width: 400px;
+            font-size: 30px;
+            border-radius: 10px; /* Agregar bordes suaves */
+            border: 3px solid #b0b0b0;
+            cursor: pointer;
+            background-image: url('contactos/Alex.png');
+            background-repeat: no-repeat;
+            background-size: 35px 35px;
+            background-position: 10px center;
+            padding-left: 50px;
+        }
+        .btncont4 {
+            background-color: #e2e2e2;
+            color: #17193c;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; /* Extrabold */
+            padding: 5px;
+            width: 400px;
+            font-size: 30px;
+            border-radius: 10px; /* Agregar bordes suaves */
+            border: 3px solid #b0b0b0;
+            cursor: pointer;
+            background-image: url('contactos/eminem.jpg');
+            background-repeat: no-repeat;
+            background-size: 35px 35px;
+            background-position: 10px center;
+            padding-left: 50px;
+        }
+        .btncont5 {
+            background-color: #e2e2e2;
+            color: #17193c;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; /* Extrabold */
+            padding: 5px;
+            width: 400px;
+            font-size: 30px;
+            border-radius: 10px; /* Agregar bordes suaves */
+            border: 3px solid #b0b0b0;
+            cursor: pointer;
+            background-image: url('contactos/vicente.jpg');
+            background-repeat: no-repeat;
+            background-size: 35px 35px;
+            background-position: 10px center;
+            padding-left: 50px;
+        }
+        .btncont6 {
+            background-color: #e2e2e2;
+            color: #17193c;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; /* Extrabold */
+            padding: 5px;
+            width: 400px;
+            font-size: 30px;
+            border-radius: 10px; /* Agregar bordes suaves */
+            border: 3px solid #b0b0b0;
+            cursor: pointer;
+            background-image: url('contactos/papa.jpg');
+            background-repeat: no-repeat;
+            background-size: 35px 35px;
+            background-position: 10px center;
+            padding-left: 50px;
+        }
+        .btncont7 {
+            background-color: #e2e2e2;
+            color: #17193c;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; /* Extrabold */
+            padding: 5px;
+            width: 400px;
+            font-size: 30px;
+            border-radius: 10px; /* Agregar bordes suaves */
+            border: 3px solid #b0b0b0;
+            cursor: pointer;
+            background-image: url('contactos/santa.jpg');
+            background-repeat: no-repeat;
+            background-size: 35px 35px;
+            background-position: 10px center;
+            padding-left: 50px;
+        }
+        .small-image {
+        max-width: 400px; /* Ajusta el tamaño deseado */
+        height: auto;
+        display: block;
+        margin: 0 auto;
+        }
+        .contactos {
+            text-align: left; /* Alinea el texto a la izquierda */
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700; /* Extrabold */
+            color: #56b1b8;
+            font-size: 30px;
+            padding-left: 10px; /* Agrega un poco de espacio en la izquierda */
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div class="header">
+            <h1><a href="index home.html">
+                <img src="logos/logo_2.png">
+            </a></h1>
+        </div>
+        <div class="container">
+            <a href="index add contact.html">
+                <img src="galeria/añadir amigos.jpg" class="small-image">
+            </a></p></p>
+            <div class="contactos"> Contactos
+            </div>
+            <button class="btncont1">Margarita</button></p>
+            <button class="btncont2">Jose Miguel</button></p>
+            <button class="btncont3">Alex</button></p>
+            <button class="btncont4">Eminem</button></p>
+            <button class="btncont5">Vicente</button></p>
+            <button class="btncont6">Papa</button></p>
+            <button class="btncont7">Santa Claus</button></p>
+        </div>
+        <div class="footer">
+            <ul>
+                <a href="index home.html">
+                    <img src="logos/im5.png">
+                </a>
+                <a href="#">
+                    <img src="logos/im2.png">
+                </a>
+                <a href="#">
+                    <img src="logos/im3.png">
+                </a>
+                <a href="#">
+                    <img src="logos/im4.png">
+                </a>
+                <a href="index friends.html">
+                    <img src="logos/im6.png">
+                </a>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
