@@ -3,26 +3,40 @@ import { React, useState, useEffect } from 'react';
 import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, Platform, BackHandler } from 'react-native';
 
 import Addcont from './screens/Addcont';
+import CrearCuenta from './screens/crear_cuenta';
 
 export default function App() {
   const [inises, setInises] = useState(false);
   const [contacts, setContacts] = useState([]);
+  const [crear_c, setCrear] = useState(false);
 
   const ActivarInises = () => {
+    setCrear(false);
     setInises(true);
   }
+
+  const ActivarCrear = () => {
+    setInises(false);
+    setCrear(true);
+  }
+
 
   const agregarContacto = (nuevoContacto) => {
     setContacts([...contacts, nuevoContacto]);
   }
 
+  const pasaraini = (salid) => {
+    setCrear(false);
+    setInises(true);
+  }
+
 
   useEffect(() => {
     const backHandler = () => {
-      if (inises) {
-        // Si mostrarLogin está en true, cambia su valor a false al presionar el botón de retroceso.
+      if (inises || crear_c) {
         setInises(false);
-        return true; // Para evitar que la acción predeterminada de retroceso ocurra.
+        setCrear(false);
+        return true;
       }
       return false; // Permite la acción predeterminada de retroceso si mostrarLogin es false.
     };
@@ -32,7 +46,7 @@ export default function App() {
     return () => {
       backHandlerSubscription.remove();
     };
-  }, [inises]);
+  }, [inises, crear_c]);
 
   return (
     <View style={styles.container}>
@@ -43,7 +57,7 @@ export default function App() {
       <View style={styles.circle2} />
 
       <Image source={require('./assets/Examfy_logo.png')} style={styles.image} />
-      <TouchableOpacity>
+      <TouchableOpacity onPress={ActivarCrear}>
         <View style={styles.button1}>
           <Text style={styles.buttontext}> Crear Cuenta Invitado</Text>
         </View>
@@ -55,6 +69,9 @@ export default function App() {
       </TouchableOpacity>
       {inises && <View style={{ position: 'absolute', width: windowWidth, height: windowHeight, backgroundColor: 'white' }}>
         <Addcont contacti={contacts} agregarContacto={agregarContacto} />
+      </View>}
+      {crear_c && <View style={{ position: 'absolute', width: windowWidth, height: windowHeight, backgroundColor: 'white' }}>
+        <CrearCuenta salid={pasaraini} />
       </View>}
     </View>
   );

@@ -1,21 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions, FlatList, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 import * as SMS from 'expo-sms';
+import foto1 from "../assets/foto1.jpeg";
+import foto2 from "../assets/foto2.jpeg";
+import foto3 from "../assets/foto3.jpeg";
+import foto4 from "../assets/foto4.jpeg";
+import foto5 from "../assets/foto5.jpeg";
 
 const Addcont = ({ contacti, agregarContacto }) => {
 
     const [contacts, setContacts] = useState(contacti); // Define y proporciona tus datos de contactos
-
-
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+    const [imagemos, setimagemos] = useState(true);
+
+    const images = [
+        foto1, foto2, foto3, foto4, foto5
+    ];
 
     const sendSMS = async () => {
         const isAvailable = true;
+
         if (isAvailable) {
             // Define el mensaje y los destinatarios
             const message = 'Hola, este es un mensaje de prueba , Tu codigo es: 01234.';
             const recipients = phoneNumber; // Agrega los números de teléfono de los destinatarios
+
             // Envía el SMS
             const { result } = await SMS.sendSMSAsync(recipients, message);
         }
@@ -40,6 +50,13 @@ const Addcont = ({ contacti, agregarContacto }) => {
         setPhoneNumber('');
     };
 
+    const cambiarpanta = () => {
+        setimagemos(false);
+    }
+    const activarphoto = () => {
+        setimagemos(true);
+    }
+
     const agregarContenedor = () => {
         // Genera tus contactos y agrégalos al estado de 'contacts' según sea necesario
         // Por ejemplo:
@@ -55,7 +72,7 @@ const Addcont = ({ contacti, agregarContacto }) => {
     return (
         <KeyboardAvoidingView style={styles.container} behavior='height'>
             <Image source={require('../assets/Examfy_logo.png')} style={styles.Logo} />
-            <View style={styles.info}>
+            {!imagemos && <View style={styles.info}>
                 <View style={styles.plus} />
                 <TextInput
                     style={styles.contacto_An_mod}
@@ -81,12 +98,12 @@ const Addcont = ({ contacti, agregarContacto }) => {
                 <TouchableOpacity style={styles.boton} onPress={handleSaveContact}>
                     <Text style={{ textAlign: 'center', color: 'black', fontWeight: 'bold' }}>Añadir</Text>
                 </TouchableOpacity>
-            </View>
+            </View>}
 
-            <View style={styles.Contactos}>
+            {!imagemos && <View style={styles.Contactos}>
                 <Text style={styles.TextContact}>Contactos</Text>
-            </View>
-            <View style={{ position: 'absolute', bottom: windowHeight * 0.15, width: windowWidth, height: windowHeight * 0.35, justifyContent: 'center', alignItems: 'center' }}>
+            </View>}
+            {!imagemos && <View style={{ position: 'absolute', bottom: windowHeight * 0.15, width: windowWidth, height: windowHeight * 0.35, justifyContent: 'center', alignItems: 'center' }}>
                 <FlatList
                     data={contacts}
                     keyExtractor={(contact) => contact.id}
@@ -98,9 +115,21 @@ const Addcont = ({ contacti, agregarContacto }) => {
                         </View>
                     )}
                 />
-            </View>
+            </View>}
+            {imagemos && <View style={styles.containerlist}>
+                <FlatList
+                    data={images}
+                    keyExtractor={(item, index) => index.toString()}
+                    renderItem={({ item }) => (
+                        <View style={styles.imageContainer}>
+                            <Image source={item} style={styles.imagelist} />
+                        </View>
+                    )}
+                />
+            </View>}
+
             <View style={styles.navigator}>
-                <TouchableOpacity style={styles.screen1}>
+                <TouchableOpacity style={styles.screen1} onPress={activarphoto}>
                     <Image source={require('../assets/multiple_photo.png')} style={styles.multiplepho} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.screen2}>
@@ -109,7 +138,7 @@ const Addcont = ({ contacti, agregarContacto }) => {
                 <TouchableOpacity style={styles.screen3}>
                     <Image source={require('../assets/home.png')} style={styles.multiplepho} />
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.screen4}>
+                <TouchableOpacity style={styles.screen4} onPress={cambiarpanta}>
                     <Image source={require('../assets/plane.png')} style={styles.multiplepho} />
                 </TouchableOpacity>
                 <TouchableOpacity style={styles.screen5}>
@@ -123,6 +152,19 @@ const windowWidth = Dimensions.get('window').width;
 const windowHeight = Dimensions.get('window').height;
 
 const styles = StyleSheet.create({
+    imageContainer: {
+        marginBottom: 20, // Agrega el padding deseado aquí
+    },
+    imagelist: {
+        width: windowWidth,
+        height: windowHeight * 0.2
+    },
+    containerlist: {
+        position: 'absolute',
+        bottom: windowHeight * 0.15,
+        height: windowHeight * 0.68,
+        width: windowWidth,
+    },
 
     screen1: {
         position: 'absolute',
