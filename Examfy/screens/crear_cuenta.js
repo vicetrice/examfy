@@ -1,11 +1,13 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions, FlatList, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
 
+
 const CrearCuenta = ({ salid }) => {
     const [smsCode, setSMSCode] = useState('');
     const handleVerification = () => {
         if (smsCode == '01234') {
             salid(true);
+
         }
     };
 
@@ -63,4 +65,8 @@ const styles = StyleSheet.create({
     },
 });
 
+<<<<<<< HEAD
 export default CrearCuenta;
+=======
+export default CrearCuenta;
+>>>>>>> 4ade925791fe4b3e06b81154ff37a9f505697eb6

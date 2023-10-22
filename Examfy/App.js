@@ -9,6 +9,10 @@ export default function App() {
   const [inises, setInises] = useState(false);
   const [contacts, setContacts] = useState([]);
   const [crear_c, setCrear] = useState(false);
+<<<<<<< HEAD
+=======
+
+>>>>>>> 4ade925791fe4b3e06b81154ff37a9f505697eb6
 
   const ActivarInises = () => {
     setCrear(false);
@@ -20,7 +24,10 @@ export default function App() {
     setCrear(true);
   }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 4ade925791fe4b3e06b81154ff37a9f505697eb6
   const agregarContacto = (nuevoContacto) => {
     setContacts([...contacts, nuevoContacto]);
   }
@@ -38,7 +45,7 @@ export default function App() {
         setCrear(false);
         return true;
       }
-      return false; // Permite la acción predeterminada de retroceso si mostrarLogin es false.
+      return false;
     };
 
     const backHandlerSubscription = BackHandler.addEventListener('hardwareBackPress', backHandler);
@@ -67,11 +74,16 @@ export default function App() {
           <Text style={styles.buttontext}> Iniciar Sesión</Text>
         </View>
       </TouchableOpacity>
+      
       {inises && <View style={{ position: 'absolute', width: windowWidth, height: windowHeight, backgroundColor: 'white' }}>
         <Addcont contacti={contacts} agregarContacto={agregarContacto} />
       </View>}
       {crear_c && <View style={{ position: 'absolute', width: windowWidth, height: windowHeight, backgroundColor: 'white' }}>
+<<<<<<< HEAD
         <CrearCuenta salid={pasaraini} />
+=======
+        <CrearCuenta />
+>>>>>>> 4ade925791fe4b3e06b81154ff37a9f505697eb6
       </View>}
     </View>
   );
@@ -134,7 +146,7 @@ const styles = StyleSheet.create({
   buttontext: {
     alignSelf: 'center',
     fontSize: 16,
-    fontWeight: 'bold', // Aplicar negrita
+    fontWeight: 'bold',
   },
   button2: {
     width: 300,
