@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, Image, Dimensions, FlatList, TextInput, TouchableOpacity, KeyboardAvoidingView } from 'react-native';
+import * as SMS from 'expo-sms';
 
 const Addcont = ({ contacti, agregarContacto }) => {
 
@@ -8,6 +9,18 @@ const Addcont = ({ contacti, agregarContacto }) => {
 
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
+
+    const sendSMS = async () => {
+        const isAvailable = true;
+        if (isAvailable) {
+            // Define el mensaje y los destinatarios
+            const message = 'Hola, este es un mensaje de prueba , Tu codigo es: 01234.';
+            const recipients = phoneNumber; // Agrega los números de teléfono de los destinatarios
+            // Envía el SMS
+            const { result } = await SMS.sendSMSAsync(recipients, message);
+        }
+    };
+
 
     const handleNameChange = (text) => {
         setName(text);
@@ -18,8 +31,10 @@ const Addcont = ({ contacti, agregarContacto }) => {
     };
 
     const handleSaveContact = () => {
+        sendSMS();
         // Aquí puedes realizar la lógica para guardar el contacto con el nombre y número de teléfono ingresados.
         agregarContenedor();
+
         // Luego, puedes limpiar los campos o realizar otras acciones según tus necesidades.
         setName('');
         setPhoneNumber('');

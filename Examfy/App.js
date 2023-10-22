@@ -45,7 +45,7 @@ export default function App() {
       <Image source={require('./assets/Examfy_logo.png')} style={styles.image} />
       <TouchableOpacity>
         <View style={styles.button1}>
-          <Text style={styles.buttontext}> Crear Cuenta</Text>
+          <Text style={styles.buttontext}> Crear Cuenta Invitado</Text>
         </View>
       </TouchableOpacity>
       <TouchableOpacity onPress={ActivarInises}>
