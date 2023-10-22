@@ -9,10 +9,7 @@ export default function App() {
   const [inises, setInises] = useState(false);
   const [contacts, setContacts] = useState([]);
   const [crear_c, setCrear] = useState(false);
-<<<<<<< HEAD
-=======
 
->>>>>>> 4ade925791fe4b3e06b81154ff37a9f505697eb6
 
   const ActivarInises = () => {
     setCrear(false);
@@ -24,10 +21,6 @@ export default function App() {
     setCrear(true);
   }
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 4ade925791fe4b3e06b81154ff37a9f505697eb6
   const agregarContacto = (nuevoContacto) => {
     setContacts([...contacts, nuevoContacto]);
   }
@@ -74,16 +67,12 @@ export default function App() {
           <Text style={styles.buttontext}> Iniciar Sesión</Text>
         </View>
       </TouchableOpacity>
-      
+
       {inises && <View style={{ position: 'absolute', width: windowWidth, height: windowHeight, backgroundColor: 'white' }}>
         <Addcont contacti={contacts} agregarContacto={agregarContacto} />
       </View>}
       {crear_c && <View style={{ position: 'absolute', width: windowWidth, height: windowHeight, backgroundColor: 'white' }}>
-<<<<<<< HEAD
         <CrearCuenta salid={pasaraini} />
-=======
-        <CrearCuenta />
->>>>>>> 4ade925791fe4b3e06b81154ff37a9f505697eb6
       </View>}
     </View>
   );
