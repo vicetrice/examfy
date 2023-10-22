@@ -33,12 +33,19 @@ export default function App() {
 
   useEffect(() => {
     const backHandler = () => {
-      if (inises || crear_c) {
-        setInises(false);
-        setCrear(false);
-        return true;
+      switch (true) {
+        case crear_c:
+          setCrear(false);
+          return true;
+          break;
+        case inises:
+          setInises(false);
+          return true;
+          break;
+        default:
+          return false;
+          break;
       }
-      return false;
     };
 
     const backHandlerSubscription = BackHandler.addEventListener('hardwareBackPress', backHandler);

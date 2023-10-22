@@ -65,8 +65,4 @@ const styles = StyleSheet.create({
     },
 });
 
-<<<<<<< HEAD
 export default CrearCuenta;
-=======
-export default CrearCuenta;
->>>>>>> 4ade925791fe4b3e06b81154ff37a9f505697eb6
