@@ -1,15 +1,38 @@
 import { StatusBar } from 'expo-status-bar';
-import { React, useState } from 'react';
-import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, Platform } from 'react-native';
+import { React, useState, useEffect } from 'react';
+import { StyleSheet, Text, View, Image, Dimensions, TouchableOpacity, Platform, BackHandler } from 'react-native';
 
 import Addcont from './screens/Addcont';
 
 export default function App() {
   const [inises, setInises] = useState(false);
+  const [contacts, setContacts] = useState([]);
 
   const ActivarInises = () => {
     setInises(true);
   }
+
+  const agregarContacto = (nuevoContacto) => {
+    setContacts([...contacts, nuevoContacto]);
+  }
+
+
+  useEffect(() => {
+    const backHandler = () => {
+      if (inises) {
+        // Si mostrarLogin está en true, cambia su valor a false al presionar el botón de retroceso.
+        setInises(false);
+        return true; // Para evitar que la acción predeterminada de retroceso ocurra.
+      }
+      return false; // Permite la acción predeterminada de retroceso si mostrarLogin es false.
+    };
+
+    const backHandlerSubscription = BackHandler.addEventListener('hardwareBackPress', backHandler);
+
+    return () => {
+      backHandlerSubscription.remove();
+    };
+  }, [inises]);
 
   return (
     <View style={styles.container}>
@@ -31,7 +54,7 @@ export default function App() {
         </View>
       </TouchableOpacity>
       {inises && <View style={{ position: 'absolute', width: windowWidth, height: windowHeight, backgroundColor: 'white' }}>
-        <Addcont />
+        <Addcont contacti={contacts} agregarContacto={agregarContacto} />
       </View>}
     </View>
   );
@@ -49,8 +72,8 @@ const styles = StyleSheet.create({
   },
   image: {
     position: 'absolute',
-    width: 120,
-    height: 50,
+    width: windowWidth * 0.5,
+    height: windowHeight * 0.11,
     top: 80,
   },
   backcontain: {
@@ -61,10 +84,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#d4f4f6',
   },
   circle2: {
-    width: windowWidth * 0.40,
+    width: windowWidth * 0.42,
     height: windowHeight * 0.8,
-    right: -0.1 * windowWidth,
-    bottom: windowHeight * 0.6125,
+    right: -0.09 * windowWidth,
+    bottom: windowHeight * 0.62,
     borderRadius: 1000,
     position: 'absolute',
     backgroundColor: '#d4f4f6',
@@ -119,11 +142,11 @@ const styles = StyleSheet.create({
 
   },
   circle1: {
-    width: windowWidth * 1.3325,
+    width: windowWidth * 1.385,
     height: windowHeight * 0.7,
     borderRadius: windowWidth * 1000,
     top: windowHeight * 0.3,
-    left: -0.28 * windowWidth,
+    left: -0.325 * windowWidth,
     position: 'absolute',
     backgroundColor: '#fff',
   }
