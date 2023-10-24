@@ -1,5 +1,6 @@
 # examfy
 Este proyecto es una boceto de lo que verian las personas al iniciar sesion, añadir gente al circulo de confianza e intentar crearse una cuenta como invitado.
+PD: Fue creado en dos dias de una manera poca eficiente.
 ## Como iniciar la app
 Para iniciar la app hace falta descargar nodejs, Expo-CLI y react-native, una vez descargado todos estos hacer `npm install` y luego escribir `npm start`
 ### Paso por paso:
