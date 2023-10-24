@@ -8,6 +8,6 @@ Para iniciar la app hace falta descargar nodejs, Expo-CLI y react-native, una ve
    ```
     npm install -g expo-cli
    ```
-4. Ya descargado clonar el repositorio con `git clone`
-5. iniciar la app con `npm start`
-6. Descargar la app expo Go en el dispositivo movil y escanear el QR generado al hacer `npm start`
+3. Ya descargado clonar el repositorio con `git clone`
+4. iniciar la app con `npm start`
+5. Descargar la app expo Go en el dispositivo movil y escanear el QR generado al hacer `npm start`
