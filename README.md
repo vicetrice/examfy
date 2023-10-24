@@ -8,7 +8,7 @@ Para iniciar la app hace falta descargar nodejs, Expo-CLI y react-native, una ve
    ```
    npm install -g react-native
    ```
-3. Una vez descargado escirbir en el terminal
+3. Una vez descargado, descargar Expo-CLI
    ```
     npm install -g expo-cli
    ```
